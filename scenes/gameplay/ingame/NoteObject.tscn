@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d34n6i8l3d26p"]
+
+[ext_resource type="Script" uid="uid://cgx8ooiar0jpi" path="res://scenes/gameplay/ingame/NoteObject.gd" id="1_45j8y"]
+
+[node name="NoteObject" type="ColorRect"]
+custom_minimum_size = Vector2(100, 30)
+color = Color(1, 1, 0, 1)
+script = ExtResource("1_45j8y")

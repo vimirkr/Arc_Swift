@@ -1,0 +1,12 @@
+[
+  {
+	"song_id": "example_no_commercial",
+	"jacket_file": "temp_image2",
+	"audio_file": "example_no_commercial.ogg",
+	"preview_start_ms": 30000,
+	"preview_end_ms": 60000,
+	"charts": [
+	  { "difficulty": "EZ", "level": 2, "constants": [2, 0.1], "file": "Chart/example_Chart_EZ.json" }
+	]
+  }
+]

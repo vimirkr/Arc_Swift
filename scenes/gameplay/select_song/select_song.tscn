@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=3 uid="uid://dybl4n6mrl282"]
+
+[ext_resource type="Script" uid="uid://bplxc63nk7j8n" path="res://scenes/gameplay/select_song/select_song.gd" id="1_e40r5"]
+
+[node name="SelectSong" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e40r5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainLayout" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/MainLayout"]
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/MainLayout/Header"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+focus_mode = 0
+
+[node name="Spacer" type="Control" parent="MarginContainer/MainLayout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainLayout/Header"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+focus_mode = 0
+
+[node name="SubHeader" type="VBoxContainer" parent="MarginContainer/MainLayout"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CategoryButton" type="Button" parent="MarginContainer/MainLayout/SubHeader"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+
+[node name="DirectionButtons" type="HBoxContainer" parent="MarginContainer/MainLayout/SubHeader"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftButton" type="Button" parent="MarginContainer/MainLayout/SubHeader/DirectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+focus_mode = 0
+text = "<"
+
+[node name="RightButton" type="Button" parent="MarginContainer/MainLayout/SubHeader/DirectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+focus_mode = 0
+text = ">"
+
+[node name="Content" type="Control" parent="MarginContainer/MainLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainLayout/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="CoverStage" type="Control" parent="MarginContainer/MainLayout/Content/MarginContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Footer" type="HBoxContainer" parent="MarginContainer/MainLayout"]
+layout_mode = 2
+
+[node name="DifficultyButtonsContainer" type="HBoxContainer" parent="MarginContainer/MainLayout/Footer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/MainLayout/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="MarginContainer/MainLayout/Footer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+focus_mode = 0
+
+[node name="OptionsMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PreviewPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

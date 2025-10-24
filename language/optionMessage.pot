@@ -1,0 +1,165 @@
+# LANGUAGE translation for tracktone for the following files:
+# res://scenes/ui/option/option.gd
+# res://scenes/boot/warning_screen.tscn.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: tracktone\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: scenes/ui/option/option.gd
+msgid "English"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "日本語"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "한국어"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "Off"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "Protanopia/Deuteranopia"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "Tritanopia"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "MSAA 2x"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "MSAA 4x"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "MSAA 8x"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "On"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "temp"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "Unlimited"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "60 FPS"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "30 FPS"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_RESTART_REQUIRED"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_SCREEN_MODE"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_RESOLUTION"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_FRAME_LIMIT"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_LANGUAGE"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COLOR_MODE"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_ANTIALIASING"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_LOW_SPEC"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_BUFFER"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_DEVICE"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BACKGROUND_AUDIO"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MASTER_VOLUME"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MUSIC_VOLUME"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_SFX_VOLUME"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_UI_VOLUME"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COMPRESSOR"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "UI_BACK"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_TUTORIAL"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BORDERLESS_FULLSCREEN"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_EXCLUSIVE_FULLSCREEN"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_WINDOWED"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_VSYNC"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "UI_OFF"
+msgstr ""
+
+#: scenes/ui/option/option.gd
+msgid "UI_ON"
+msgstr ""

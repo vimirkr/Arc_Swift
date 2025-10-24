@@ -1,0 +1,37 @@
+{
+  "TestOGGFLY": {
+    "title": "TestOGGFLY",
+    "artist": "fly",
+    "bpm_string": "180"
+  },
+  "TestOGGFLY_2": {
+    "title": "TestOGGFLY_2",
+    "artist": "fly",
+    "bpm_string": "125-150"
+  },
+  "TestOGGFLY_3": {
+    "title": "TestOGGFLY_3",
+    "artist": "fly",
+    "bpm_string": "150"
+  },
+  "TestOGGFLY_4": {
+    "title": "TestOGGFLY_4",
+    "artist": "fly",
+    "bpm_string": "125"
+  },
+  "TestOGGFLY_5": {
+    "title": "TestOGGFLY_5",
+    "artist": "fly",
+    "bpm_string": "200"
+  },
+  "TestOGGFLY_6": {
+    "title": "TestOGGFLY_6",
+    "artist": "fly",
+    "bpm_string": "250"
+  },
+  "TestOGGChaos": {
+    "title": "TestOGGChaos",
+    "artist": "chaos",
+    "bpm_string": "300"
+  }
+}

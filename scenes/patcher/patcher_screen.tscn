@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://b50kxi2fsegc3"]
+
+[ext_resource type="Script" uid="uid://dbjx4aypwy4ao" path="res://scenes/patcher/patcher_screen.gd" id="1_mu2s1"]
+
+[node name="PatcherScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mu2s1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 276.0
+offset_right = 684.0
+offset_bottom = 316.0
+color = Color(0.348163, 0.839983, 0.806939, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

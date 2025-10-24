@@ -1,0 +1,19 @@
+[
+  {
+	"song_id": "TestOGGChaos",
+	"jacket_file": "Chaosjacket.png",
+	"audio_file": "TestOGGChaos.ogg",
+	"preview_start_ms": 30000,
+	"preview_end_ms": 60000,
+	"charts": [
+	  { "difficulty": "EZ", "level": 2, "constants": [2, 0.1], "file": "Chart/TestOGGChaosChart_ez.json" },
+	  { "difficulty": "NM", "level": 6, "constants": [6, 0.2], "file": "Chart/TestOGGChaosChart_ez_nm.json" },
+	  { "difficulty": "HD", "level": 11, "constants": [11, 0.5], "file": "Chart/TestOGGChaosChart_ez_hd.json" },
+	  { "difficulty": "MX", "level": 11, "constants": [15, 0.7], "file": "Chart/TestOGGChaosChart_ez_mx.json" },
+	  { "difficulty": "IV", "level": 11, "constants": [17, 0.9], "file": "Chart/TestOGGChaosChart_ez_iv.json" },
+	  { "difficulty": "OD", "level": 11, "constants": [20, 0.0], "file": "Chart/TestOGGChaosChart_ez_od.json" },
+	  { "difficulty": "IC", "level": 11, "constants": [19, 0.5], "file": "Chart/TestOGGChaosChart_ez_ic.json" },
+	  { "difficulty": "X", "level": 11, "constants": [10, 0.5], "file": "Chart/TestOGGChaosChart_ez_x.json" }
+	]
+  }
+]

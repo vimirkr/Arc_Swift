@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://l1r3ck3bucii"]
+
+[ext_resource type="Script" uid="uid://dxio2pfv3k3no" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
+[ext_resource type="Texture2D" uid="uid://dl8r4r6hfepda" path="res://scenes/main_menu/temp_image.png" id="1_fsom3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ebjn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fsom3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SelectMusic_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select Music"
+
+[node name="Profile_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Profile"
+
+[node name="Option_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Credits_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[connection signal="pressed" from="VBoxContainer/SelectMusic_Button" to="." method="_on_select_music_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Profile_Button" to="." method="_on_profile_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Option_Button" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits_Button" to="." method="_on_credits_button_pressed"]

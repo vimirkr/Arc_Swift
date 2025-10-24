@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bys0bd7e8exmd"]
+
+[ext_resource type="Script" uid="uid://djgs8nvs4wxyu" path="res://scenes/gameplay/ingame/ingame.gd" id="1_3rmm3"]
+[ext_resource type="PackedScene" uid="uid://c6s7c3t16n5ga" path="res://scenes/gameplay/ingame/GameGear.tscn" id="2_f788r"]
+[ext_resource type="Script" uid="uid://cb8k8exa2iihd" path="res://scenes/gameplay/ingame/NoteManager.gd" id="3_ucb7p"]
+
+[node name="Ingame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rmm3")
+
+[node name="LoadingScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameplayUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameGear" parent="GameplayUI" instance=ExtResource("2_f788r")]
+layout_mode = 1
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoteManager" type="Node" parent="."]
+script = ExtResource("3_ucb7p")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="LoadingTimer" type="Timer" parent="Timers"]
+
+[node name="StartDelayTimer" type="Timer" parent="Timers"]
+
+[node name="ResultTimer" type="Timer" parent="Timers"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,125 @@
+{
+	"bpm": 100,
+	"offset": 0,
+	"charts": [
+		{
+			"uuid": "009cfc03-9639-4e9e-9876-1242e30c3089",
+			"notes": [
+				{
+					"uuid": "f5ce8d0d-6815-4038-970d-690f104edfce",
+					"songPos": 1799.9999999999998,
+					"beat": 3,
+					"color": 16777215,
+					"label": "",
+					"lane": 0
+				},
+				{
+					"uuid": "9cf32133-efe8-4b04-9839-0daf12aa5f01",
+					"songPos": 4200,
+					"beat": 7,
+					"color": 16777215,
+					"label": "",
+					"lane": 1
+				},
+				{
+					"uuid": "23e11101-085d-4fdd-ae42-63ca19dc69a6",
+					"songPos": 4800,
+					"beat": 8,
+					"color": 16777215,
+					"label": "",
+					"lane": 2
+				},
+				{
+					"uuid": "523fa079-def0-4f15-a115-0df2e67b234d",
+					"songPos": 7199.999999999999,
+					"beat": 12,
+					"color": 16777215,
+					"label": "",
+					"lane": 3
+				},
+				{
+					"uuid": "3c8d632c-d481-4e84-b5ff-e6f17f6e22f5",
+					"songPos": 1200,
+					"beat": 2,
+					"color": 16777215,
+					"label": "",
+					"lane": 3
+				},
+				{
+					"uuid": "70d96e0d-90b3-429f-9ad2-0025cdce0cfe",
+					"songPos": 1200,
+					"beat": 2,
+					"color": 16777215,
+					"label": "",
+					"lane": 2
+				},
+				{
+					"uuid": "1517caa0-296d-46f4-96e0-2dfcb56de171",
+					"songPos": 600,
+					"beat": 1,
+					"color": 16777215,
+					"label": "",
+					"lane": 1
+				},
+				{
+					"uuid": "3c049b01-3df5-4f18-9235-300826e24592",
+					"songPos": 2400,
+					"beat": 4,
+					"color": 16777215,
+					"label": "",
+					"lane": 1
+				},
+				{
+					"uuid": "4bf353bc-3587-4d41-baa0-556442b4ac14",
+					"songPos": 2400,
+					"beat": 4,
+					"color": 16777215,
+					"label": "",
+					"lane": 0
+				},
+				{
+					"uuid": "c3cd528f-e588-4b40-b33e-0b77e97540d7",
+					"songPos": 3599.9999999999995,
+					"beat": 6,
+					"color": 16777215,
+					"label": "",
+					"lane": 2
+				},
+				{
+					"uuid": "4b52557f-37f4-4a74-84df-5f6ff61c2b71",
+					"songPos": 3599.9999999999995,
+					"beat": 6,
+					"color": 16777215,
+					"label": "",
+					"lane": 3
+				},
+				{
+					"uuid": "e22d246a-4b31-49de-803a-046bd67bec8a",
+					"songPos": 5399.999999999999,
+					"beat": 9,
+					"color": 16777215,
+					"label": "",
+					"lane": 3
+				},
+				{
+					"uuid": "3e79ff63-9cbd-4f00-9687-e54144bf793b",
+					"songPos": 5399.999999999999,
+					"beat": 9,
+					"color": 16777215,
+					"label": "",
+					"lane": 0
+				},
+				{
+					"uuid": "3f61eaad-b2ee-40ac-8b68-9b989ff8b033",
+					"songPos": 4200,
+					"beat": 7,
+					"color": 16777215,
+					"label": "",
+					"lane": 0
+				}
+			],
+			"laneCount": 4,
+			"links": []
+		}
+	]
+}

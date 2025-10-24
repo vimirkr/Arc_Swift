@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3hg02a3o7gyw"]
+
+[ext_resource type="Script" uid="uid://47abqb02t3pf" path="res://scenes/ui/user_profile/user_profile.gd" id="1_jb2k6"]
+
+[node name="UserProfile" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jb2k6")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+offset_left = 42.0
+offset_top = 66.0
+offset_right = 425.0
+offset_bottom = 97.0
+current_tab = 1
+
+[node name="Summary" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Recent" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Recent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Recent/ScrollContainer"]
+layout_mode = 2
+
+[node name="Song Score" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

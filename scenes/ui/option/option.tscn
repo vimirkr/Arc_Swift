@@ -1,0 +1,228 @@
+[gd_scene load_steps=2 format=3 uid="uid://de0c6gqm87h88"]
+
+[ext_resource type="Script" uid="uid://tgan1hopjswn" path="res://scenes/ui/option/option.gd" id="1_7dy02"]
+
+[node name="Option" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7dy02")
+
+[node name="backgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.905133, 0.338659, 0.703656, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RestartNoticeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LanguageContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LanguageContainer"]
+layout_mode = 2
+text = "language"
+
+[node name="LanguageButton" type="OptionButton" parent="MarginContainer/VBoxContainer/LanguageContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScreenModeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScreenModeContainer"]
+layout_mode = 2
+text = "ScreenMode"
+
+[node name="ScreenModeButton" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenModeContainer"]
+layout_mode = 2
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ResolutionContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/ResolutionContainer"]
+layout_mode = 2
+
+[node name="FrameLimitContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/FrameLimitContainer"]
+layout_mode = 2
+text = "FrameLimit"
+
+[node name="FrameLimitButton" type="OptionButton" parent="MarginContainer/VBoxContainer/FrameLimitContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AntiAliasingContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AntiAliasingContainer"]
+layout_mode = 2
+
+[node name="AntiAliasingButton" type="OptionButton" parent="MarginContainer/VBoxContainer/AntiAliasingContainer"]
+layout_mode = 2
+
+[node name="LowSpecContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/LowSpecContainer"]
+layout_mode = 2
+
+[node name="LowSpecButton" type="OptionButton" parent="MarginContainer/VBoxContainer/LowSpecContainer"]
+layout_mode = 2
+
+[node name="ColorModeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ColorModeContainer"]
+layout_mode = 2
+
+[node name="ColorModeButton" type="OptionButton" parent="MarginContainer/VBoxContainer/ColorModeContainer"]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AudioBufferContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AudioBufferContainer"]
+layout_mode = 2
+text = "low buffer and full screen=low latency/high buffer=stability"
+
+[node name="AudioBufferButton" type="OptionButton" parent="MarginContainer/VBoxContainer/AudioBufferContainer"]
+layout_mode = 2
+
+[node name="AudioDeviceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AudioDeviceContainer"]
+layout_mode = 2
+
+[node name="AudioDeviceButton" type="OptionButton" parent="MarginContainer/VBoxContainer/AudioDeviceContainer"]
+layout_mode = 2
+
+[node name="BackgroundAudioContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BackgroundAudioContainer"]
+layout_mode = 2
+
+[node name="BackgroundAudioButton" type="OptionButton" parent="MarginContainer/VBoxContainer/BackgroundAudioContainer"]
+layout_mode = 2
+
+[node name="VolumeGridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+text = "3"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+text = "4"
+
+[node name="UIVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UIVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VolumeGridContainer"]
+layout_mode = 2
+
+[node name="CompressorContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CompressorContainer"]
+layout_mode = 2
+
+[node name="CompressorCheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/CompressorContainer"]
+layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "back"
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/LanguageContainer/LanguageButton" to="." method="_on_language_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ScreenModeContainer/ScreenModeButton" to="." method="_on_screen_mode_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ResolutionContainer/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/FrameLimitContainer/FrameLimitButton" to="." method="_on_frame_limit_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/AntiAliasingContainer/AntiAliasingButton" to="." method="_on_anti_aliasing_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/LowSpecContainer/LowSpecButton" to="." method="_on_low_spec_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ColorModeContainer/ColorModeButton" to="." method="_on_color_mode_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/AudioBufferContainer/AudioBufferButton" to="." method="_on_audio_buffer_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/AudioDeviceContainer/AudioDeviceButton" to="." method="_on_audio_device_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/BackgroundAudioContainer/BackgroundAudioButton" to="." method="_on_background_audio_button_item_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeGridContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeGridContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeGridContainer/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeGridContainer/UIVolumeSlider" to="." method="_on_ui_volume_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CompressorContainer/CompressorCheckButton" to="." method="_on_compressor_check_button_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

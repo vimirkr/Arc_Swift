@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ARC_SHIFT"
+run/main_scene="uid://cg80ayjadyjuc"
+config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/show_image=false
+
+[audio]
+
+buses/default_bus_layout="res://globals/default_bus_layout.tres"
+
+[autoload]
+
+ProfileData="*res://globals/ProfileData.gd"
+UserSettings="*res://globals/UserSettings.gd"
+GameplayData="*res://globals/GameplayData.gd"
+TextureLoader="*res://globals/TextureLoader.gd"
+
+[game]
+
+first_run_completed=true
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+ui_options={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://language/en_US.po", "res://language/ja_JP.po", "res://language/ko_KR.po")
+locale/translations_pot_files=PackedStringArray("res://scenes/ui/option/option.gd", "res://scenes/boot/warning_screen.gd")
+
+[rendering]
+
+renderer/rendering_method="mobile"
+renderer/rendering_method.web="mobile"
