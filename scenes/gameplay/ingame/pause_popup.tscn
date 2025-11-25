@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxm8qvyb5k1pu"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/ingame/pause_popup.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bokapc3lxkwv7" path="res://scenes/gameplay/ingame/pause_popup.gd" id="1_script"]
 
 [node name="PausePopup" type="CanvasLayer"]
-visible = false
+process_mode = 3
 layer = 100
+visible = false
 script = ExtResource("1_script")
 
 [node name="RootControl" type="Control" parent="."]
@@ -23,7 +24,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7)
-mouse_filter = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="RootControl"]
 layout_mode = 1
@@ -39,9 +39,9 @@ theme_override_constants/separation = 20
 
 [node name="TitleLabel" type="Label" parent="RootControl/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "PAUSED"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 48
 
 [node name="HSeparator" type="HSeparator" parent="RootControl/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -49,20 +49,20 @@ layout_mode = 2
 [node name="ResumeButton" type="Button" parent="RootControl/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-text = "Resume"
 theme_override_font_sizes/font_size = 24
+text = "Resume"
 
 [node name="RestartButton" type="Button" parent="RootControl/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-text = "Restart (F5)"
 theme_override_font_sizes/font_size = 24
+text = "Restart (F5)"
 
 [node name="SelectMusicButton" type="Button" parent="RootControl/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-text = "Select Music"
 theme_override_font_sizes/font_size = 24
+text = "Select Music"
 
 [connection signal="pressed" from="RootControl/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="RootControl/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

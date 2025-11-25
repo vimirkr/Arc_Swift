@@ -1,14 +1,7 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=2 format=3 uid="uid://c6s7c3t16n5ga"]
-
-[ext_resource type="Texture2D" uid="uid://s2yvbi6ulmeu" path="res://scenes/gameplay/ingame/tempFrame.png" id="1_vqoqy"]
-=======
 [gd_scene load_steps=3 format=3 uid="uid://cag10j0j1m0g6"]
 
 [ext_resource type="Script" uid="uid://c0wyj8e0vu2e5" path="res://scenes/gameplay/ingame/GameGear.gd" id="1_gamegear"]
 [ext_resource type="PackedScene" uid="uid://c3l1o8exr8sqo" path="res://scenes/gameplay/ingame/Rail.tscn" id="2_abcde"]
->>>>>>> Stashed changes
-
 [node name="GameGear" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -16,11 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-<<<<<<< Updated upstream
-mouse_filter = 2
-
-[node name="GearBackground" type="TextureRect" parent="."]
-=======
 script = ExtResource("1_gamegear")
 
 [node name="RailContainer" type="Node2D" parent="."]
@@ -49,41 +37,14 @@ position = Vector2(1620, 0)
 position = Vector2(1920, 0)
 
 [node name="JudgementLine" type="Panel" parent="."]
->>>>>>> Stashed changes
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-<<<<<<< Updated upstream
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_vqoqy")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="LaneContainer" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="SideLaneL" type="Control" parent="LaneContainer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1080.0
-=======
 offset_left = -960.0
 offset_top = -200.0
 offset_right = 960.0
 offset_bottom = -190.0
->>>>>>> Stashed changes
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2

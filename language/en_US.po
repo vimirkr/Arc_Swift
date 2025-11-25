@@ -328,3 +328,15 @@ msgstr "Off"
 #: scenes/ui/option/option.gd
 msgid "UI_ON"
 msgstr "On"
+
+#: scenes/ui/option/option.gd
+msgid "UI_NOT_IMPLEMENTED"
+msgstr "(Not Implemented)"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_PROFILE_NOT_IMPLEMENTED"
+msgstr "Profile feature is currently under development."
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_TUTORIAL_NOT_IMPLEMENTED"
+msgstr "Tutorial is currently under development."

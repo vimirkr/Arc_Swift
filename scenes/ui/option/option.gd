@@ -138,13 +138,15 @@ func _update_ui_text():
 	volume_grid_container.get_node("MasterVolumeLabel").text = tr("OPTIONS_MASTER_VOLUME"); volume_grid_container.get_node("MusicVolumeLabel").text = tr("OPTIONS_MUSIC_VOLUME"); volume_grid_container.get_node("SFXVolumeLabel").text = tr("OPTIONS_SFX_VOLUME"); volume_grid_container.get_node("UIVolumeLabel").text = tr("OPTIONS_UI_VOLUME");
 	compressor_container.get_node("Label").text = tr("OPTIONS_COMPRESSOR")
 	back_button.text = tr("UI_BACK")
-	tutorial_button.text = tr("OPTIONS_TUTORIAL") # NEW
+	tutorial_button.text = tr("OPTIONS_TUTORIAL") + " " + tr("UI_NOT_IMPLEMENTED") # NEW
 	
 	# OptionButton Items...
 	if screen_mode_container.visible: screen_mode_button.set_item_text(0, tr("OPTIONS_BORDERLESS_FULLSCREEN")); screen_mode_button.set_item_text(1, tr("OPTIONS_EXCLUSIVE_FULLSCREEN")); screen_mode_button.set_item_text(2, tr("OPTIONS_WINDOWED"))
 	if frame_limit_container.visible and not OS.get_name() in ["Android", "iOS"]: frame_limit_button.set_item_text(0, tr("OPTIONS_VSYNC"))
 	low_spec_button.set_item_text(0, tr("UI_OFF")); low_spec_button.set_item_text(1, tr("UI_ON"))
+	low_spec_container.get_node("Label").text = tr("OPTIONS_LOW_SPEC") + " " + tr("UI_NOT_IMPLEMENTED")
 	if background_audio_container.visible: background_audio_button.set_item_text(0, tr("UI_OFF")); background_audio_button.set_item_text(1, tr("UI_ON"))
+	if background_audio_container.visible: background_audio_container.get_node("Label").text = tr("OPTIONS_BACKGROUND_AUDIO") + " " + tr("UI_NOT_IMPLEMENTED")
 
 
 # --- Signal Callbacks ---
@@ -182,7 +184,8 @@ func _on_compressor_check_button_toggled(button_pressed: bool):
 		_save_setting("Audio", "compressor_on", button_pressed)
 
 func _on_tutorial_button_pressed(): # NEW
-	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
+	# 튜토리얼 미구현 - 콘솔에 메시지 출력
+	print("[INFO] " + tr("UI_TUTORIAL_NOT_IMPLEMENTED"))
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

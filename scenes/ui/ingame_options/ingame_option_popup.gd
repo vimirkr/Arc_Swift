@@ -20,6 +20,7 @@ func _ready():
 	_load_settings()
 	_connect_signals()
 	_update_sudden_death_ui()
+	_update_ui_labels()
 
 func _setup_controls():
 	# Scroll Speed Slider & SpinBox
@@ -165,6 +166,16 @@ func _select_item_by_id(option_button: OptionButton, id: int):
 		if option_button.get_item_id(i) == id:
 			option_button.selected = i
 			return
+
+func _update_ui_labels():
+	# Sudden Death와 Note FX에 미구현 표시 추가
+	var sudden_death_label = $RootControl/MarginContainer/VBoxContainer/SuddenDeathContainer/Label
+	var note_fx_label = $RootControl/MarginContainer/VBoxContainer/NoteFXContainer/Label
+	
+	if sudden_death_label:
+		sudden_death_label.text = "Sudden Death " + tr("UI_NOT_IMPLEMENTED")
+	if note_fx_label:
+		note_fx_label.text = "Note FX " + tr("UI_NOT_IMPLEMENTED")
 
 func _save_settings():
 	var config = ConfigFile.new()

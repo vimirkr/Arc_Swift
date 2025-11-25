@@ -2,6 +2,8 @@ extends Control
 
 @onready var tab_container = $TabContainer
 @onready var recent_list_container = $TabContainer/Recent/ScrollContainer/VBoxContainer
+@onready var summary_tab = $TabContainer/Summary
+@onready var song_score_tab = $"TabContainer/Song Score"
 @onready var back_button = $BackButton # NEW: Add reference to the back button
 
 const RecentPlayEntry = preload("res://scenes/ui/user_profile/recent_play_entry.tscn")
@@ -30,7 +32,19 @@ func _on_tab_changed(tab_index: int):
 			_populate_song_score_tab()
 
 func _populate_summary_tab():
-	pass
+	# 미구현 표시 - Summary 탭에 직접 라벨 추가
+	if not summary_tab:
+		return
+	
+	for child in summary_tab.get_children():
+		child.queue_free()
+	
+	var not_impl_label = Label.new()
+	not_impl_label.text = tr("UI_PROFILE_NOT_IMPLEMENTED")
+	not_impl_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	not_impl_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	not_impl_label.anchors_preset = Control.PRESET_FULL_RECT
+	summary_tab.add_child(not_impl_label)
 
 func _populate_recent_tab():
 	for child in recent_list_container.get_children():
@@ -63,7 +77,19 @@ func _populate_recent_tab():
 		recent_list_container.add_child(entry)
 
 func _populate_song_score_tab():
-	pass
+	# 미구현 표시 - Song Score 탭에 직접 라벨 추가
+	if not song_score_tab:
+		return
+	
+	for child in song_score_tab.get_children():
+		child.queue_free()
+	
+	var not_impl_label = Label.new()
+	not_impl_label.text = tr("UI_PROFILE_NOT_IMPLEMENTED")
+	not_impl_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	not_impl_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	not_impl_label.anchors_preset = Control.PRESET_FULL_RECT
+	song_score_tab.add_child(not_impl_label)
 
 func _update_ui_text(): # NEW: Function to update translatable text
 	back_button.text = tr("UI_BACK")

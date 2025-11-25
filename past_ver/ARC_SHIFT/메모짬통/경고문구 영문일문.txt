@@ -1,0 +1,63 @@
+영어 (미국/ESA 표준)
+WARNING_PHOTOSENSITIVITY_TITLE: WARNING: READ BEFORE PLAYING
+WARNING_PHOTOSENSITIVITY_BODY: A very small percentage of individuals may experience epileptic seizures when exposed to certain light patterns or flashing lights. Exposure to certain patterns or backgrounds on a computer screen, or while playing video games, may induce an epileptic seizure in these individuals. Certain conditions may induce previously undetected epileptic symptoms even in persons who have no history of prior seizures or epilepsy.
+
+If you, or anyone in your family, have an epileptic condition, consult your doctor prior to playing. If you experience any of the following symptoms while playing a video game — dizziness, altered vision, eye or muscle twitches, loss of awareness, disorientation, any involuntary movement, or convulsions — IMMEDIATELY discontinue use and consult your doctor before resuming play.
+
+PRECAUTIONS:
+
+Play in a well-lit room.
+
+Do not play when you are tired or fatigued.
+
+Consult your doctor before playing if you or any of your relatives have a history of seizures or epilepsy.
+
+일본어 (일본/CESA 표준)
+WARNING_PHOTOSENSITIVITY_TITLE: 健康のためのご注意 (건강을 위한 주의사항)
+WARNING_PHOTOSENSITIVITY_BODY: ごくまれに、テレビゲームなどの映像に含まれる強い光の点滅や、グラフィックパターンなど、光の刺激によって、てんかん性の発作や一時的な意識喪失などの症状を起こす人がいます。こうした経験が全くない方でも、ゲームプレイ中に原因不明のまま発作を起こすことがあります。
+
+プレイ中に、めまい、視覚の異常、目や顔のけいれん、手足のふるえや硬直、方向感覚の喪失、混乱、意識喪失などの症状がひとつでもあらわれた場合は、ただちにプレイを中止し、医師の診察を受けてください。
+
+発作を防ぐためのご注意：
+
+部屋を明るくし、画面からできるだけ離れてプレイしてください。
+
+疲れているときはプレイを控えてください。
+
+ご自身またはご家族にてんかんや発作の経験がある場合は、プレイする前に必ず医師にご相談ください。
+
+
+청력 보호 경고: 리듬 게임은 헤드폰 사용률이 높으므로, 청력 손상에 대한 경고를 추가하는 것이 좋습니다. 광과민성 경고문 아래나 게임 시작 시 별도의 화면에 잠시 표시할 수 있습니다.
+
+예시 문구:
+
+(한글) 청력 손상을 예방하기 위해 장시간 동안 높은 볼륨으로 플레이하지 마십시오.
+
+(영어) To prevent possible hearing damage, do not listen at high volume levels for long periods.
+
+(일본어) 聴力を損なうことのないよう、大音量で長時間プレイしないでください。
+
+휴식 권장 문구: 장시간 플레이를 방지하기 위한 문구를 추가할 수 있습니다.
+
+예시 문구:
+
+(한글) 적절한 휴식을 취하며 플레이해 주십시오.
+
+(영어) Please take regular breaks during long play sessions.
+
+(일본어) 長時間のプレイの際は、適度な休憩をとってください。
+
+이름 후보군
+OVER/DIVE, AETHEЯ CODE, ARC SHIFT, TRANSCEND ARC를 1차 후보군으로 가져가지만(내가 생각나면 더 추가할 수 있음), ARC SHIFT는 얼리 액세스 단계로 가면 아마 폐기하고 다른 이름을 쓸거야. 하지만 그전까지는 ARC SHIFT로 명명하고 나머지 이름 중 후보의 컨셉으로 트레일러 제작 등을 하자.
+원래 이름tracktone임 파일 이름 애러나면 한번 다시 롤백해보셈
+
+고돗 라이센스 전문
+**Godot Engine**
+Copyright (c) 2007-2023 Juan Linietsky, Ariel Manzur.
+Copyright (c) 2014-2023 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
