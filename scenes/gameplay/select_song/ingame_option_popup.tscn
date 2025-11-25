@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwp1cx8i8hw30"]
+
+[ext_resource type="Script" uid="uid://ctw58n5p6trst" path="res://scenes/ui/ingame_options/ingame_option_popup.gd" id="1_caxkn"]
+
+[node name="IngameOptionPopup" type="Node"]
+script = ExtResource("1_caxkn")

@@ -1,0 +1,218 @@
+[gd_scene load_steps=2 format=3 uid="uid://0nukdkk1f4bu"]
+
+[ext_resource type="Script" uid="uid://ctw58n5p6trst" path="res://scenes/ui/ingame_options/ingame_option_popup.gd" id="1_0n8c0"]
+
+[node name="IngameOptionPopup" type="CanvasLayer"]
+layer = 100
+visible = false
+script = ExtResource("1_0n8c0")
+
+[node name="RootControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="RootControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="MarginContainer" type="MarginContainer" parent="RootControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="RootControl/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootControl/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TitleLabel" type="Label" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "INGAME OPTIONS"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollSpeedContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/ScrollSpeedContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Scroll Speed:"
+
+[node name="ScrollSpeedSlider" type="HSlider" parent="RootControl/MarginContainer/VBoxContainer/ScrollSpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 5.0
+
+[node name="ScrollSpeedSpinBox" type="SpinBox" parent="RootControl/MarginContainer/VBoxContainer/ScrollSpeedContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 5.0
+
+[node name="EffectContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/EffectContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Effect:"
+
+[node name="EffectButton" type="OptionButton" parent="RootControl/MarginContainer/VBoxContainer/EffectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Mirror"
+popup/item_1/id = 1
+popup/item_2/text = "Fade In"
+popup/item_2/id = 2
+popup/item_3/text = "Fade Out"
+popup/item_3/id = 3
+
+[node name="JudgementDisplayContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/JudgementDisplayContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Judgement Display:"
+
+[node name="JudgementDisplayButton" type="OptionButton" parent="RootControl/MarginContainer/VBoxContainer/JudgementDisplayContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "All Except Ultimate"
+popup/item_0/id = 0
+popup/item_1/text = "Below Perfect Only"
+popup/item_1/id = 1
+popup/item_2/text = "Hide"
+popup/item_2/id = 2
+popup/item_3/text = "Off"
+popup/item_3/id = 3
+
+[node name="AudioOffsetContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/AudioOffsetContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Audio Offset (ms):"
+
+[node name="AudioOffsetSpinBox" type="SpinBox" parent="RootControl/MarginContainer/VBoxContainer/AudioOffsetContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -500.0
+max_value = 500.0
+
+[node name="SuddenDeathContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/SuddenDeathContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Sudden Death:"
+
+[node name="SuddenDeathCheck" type="CheckBox" parent="RootControl/MarginContainer/VBoxContainer/SuddenDeathContainer"]
+layout_mode = 2
+
+[node name="SuddenDeathLimitContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/SuddenDeathLimitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Sudden Death Limit:"
+
+[node name="SuddenDeathLimitButton" type="OptionButton" parent="RootControl/MarginContainer/VBoxContainer/SuddenDeathLimitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "10"
+popup/item_1/id = 1
+popup/item_2/text = "100"
+popup/item_2/id = 2
+
+[node name="CenterDisplayContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/CenterDisplayContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Center Display Info:"
+
+[node name="CenterDisplayButton" type="OptionButton" parent="RootControl/MarginContainer/VBoxContainer/CenterDisplayContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "Score"
+popup/item_0/id = 0
+popup/item_1/text = "Combo"
+popup/item_1/id = 1
+popup/item_2/text = "Sudden Count"
+popup/item_2/id = 2
+popup/item_3/text = "Off"
+popup/item_3/id = 3
+
+[node name="NoteFXContainer" type="HBoxContainer" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootControl/MarginContainer/VBoxContainer/NoteFXContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Note FX Brightness:"
+
+[node name="NoteFXSlider" type="HSlider" parent="RootControl/MarginContainer/VBoxContainer/NoteFXContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="HSeparator2" type="HSeparator" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="RootControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[connection signal="value_changed" from="RootControl/MarginContainer/VBoxContainer/ScrollSpeedContainer/ScrollSpeedSlider" to="." method="_on_scroll_speed_slider_value_changed"]
+[connection signal="value_changed" from="RootControl/MarginContainer/VBoxContainer/ScrollSpeedContainer/ScrollSpeedSpinBox" to="." method="_on_scroll_speed_spinbox_value_changed"]
+[connection signal="toggled" from="RootControl/MarginContainer/VBoxContainer/SuddenDeathContainer/SuddenDeathCheck" to="." method="_on_sudden_death_check_toggled"]
+[connection signal="pressed" from="RootControl/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

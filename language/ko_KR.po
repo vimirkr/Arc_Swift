@@ -80,3 +80,251 @@ msgstr "프레임 제한"
 #: scenes/ui/option/option.gd
 msgid "OPTIONS_LANGUAGE"
 msgstr "언어"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_RESULT"
+msgstr "게임 결과"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_PRESS_ANY_KEY"
+msgstr "아무 키나 누르세요"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_PHOTOSENSITIVITY_TITLE"
+msgstr "경고: 플레이 전 필독"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_PHOTOSENSITIVITY_BODY"
+msgstr "극소수의 사용자는 특정 빛의 패턴이나 깜박이는 빛에 노출될 때\n광과민성 발작을 경험할 수 있습니다. 컴퓨터 화면의 특정 패턴이나\n배경에 노출되거나 비디오 게임을 플레이하는 동안 이러한 개인들에게\n간질 발작이 유발될 수 있습니다. 특정 조건은 발작이나 간질 병력이\n없는 사람들에게도 이전에 감지되지 않은 간질 증상을 유발할 수 있습니다.\n\n게임을 플레이하는 동안 현기증, 시각 변화, 눈이나 근육의 경련,\n의식 상실, 방향 감각 상실, 비자발적 움직임 또는 경련 등의 증상이\n나타나면 즉시 사용을 중단하고 게임을 재개하기 전에 의사와\n상담하십시오.\n\n주의사항:\n\n• 밝은 곳에서 플레이하십시오.\n• 피곤하거나 지친 상태에서 플레이하지 마십시오.\n• 귀하 또는 귀하의 가족 중 발작이나 간질 병력이 있는 경우\n  플레이하기 전에 의사와 상담하십시오."
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_HEARING_PROTECTION"
+msgstr "청력 손상을 예방하기 위해 장시간 동안 높은 볼륨으로 플레이하지 마십시오."
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_TAKE_BREAKS"
+msgstr "적절한 휴식을 취하며 플레이해 주십시오."
+
+#: scenes/boot/warning_screen.gd
+msgid "UI_PRESS_ANY_KEY_OR_WAIT"
+msgstr "아무 키나 누르거나 7초 대기"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_RATE"
+msgstr "달성률"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_ULTIMATE"
+msgstr "얼티메이트"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_PERFECT"
+msgstr "퍼펙트"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_GREAT"
+msgstr "그레이트"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_GOOD"
+msgstr "굿"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_MISS"
+msgstr "미스"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_FAST"
+msgstr "빠름"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_SLOW"
+msgstr "느림"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_NO_RECENT_PLAYS"
+msgstr "최근 플레이 기록이 없습니다."
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_SCORE"
+msgstr "점수"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_RANK"
+msgstr "랭크"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_MAX_COMBO"
+msgstr "최대 콤보"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_PERCENT"
+msgstr "달성률"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_RATING"
+msgstr "레이팅"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_JUDGEMENTS"
+msgstr "판정"
+
+#: scenes/gameplay/ingame/pause_popup.gd
+msgid "UI_RESUME"
+msgstr "재개"
+
+#: scenes/gameplay/ingame/pause_popup.gd
+msgid "UI_RESTART"
+msgstr "다시 시작"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_SELECT_MUSIC"
+msgstr "곡 선택"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_NO_SONGS_FOUND"
+msgstr "노래를 찾을 수 없습니다"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_OPTIONS"
+msgstr "옵션"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_GAME_START"
+msgstr "게임 시작"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_CONFIRM"
+msgstr "확인"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_PROFILE"
+msgstr "프로필"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_OPTION"
+msgstr "설정"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_CREDITS"
+msgstr "크레딧"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_NONE"
+msgstr "없음"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_MIRROR"
+msgstr "미러"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_FADE_IN"
+msgstr "페이드 인"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_FADE_OUT"
+msgstr "페이드 아웃"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_ALL_EXCEPT_ULTIMATE"
+msgstr "얼티메이트 제외 모두"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_BELOW_PERFECT"
+msgstr "퍼펙트 미만만"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_HIDE"
+msgstr "굿 이하만"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_OFF"
+msgstr "표시 안함"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_SCORE"
+msgstr "점수"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_COMBO"
+msgstr "콤보"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_SUDDEN_COUNT"
+msgstr "서든 데스 카운트"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_OFF"
+msgstr "표시 안함"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_FIXED_SUDDEN"
+msgstr "서든 데스 고정"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_RESTART_REQUIRED"
+msgstr "재시작 필요"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COLOR_MODE"
+msgstr "색상 모드"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_ANTIALIASING"
+msgstr "안티앨리어싱"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_LOW_SPEC"
+msgstr "저사양 모드"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_BUFFER"
+msgstr "오디오 버퍼"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_DEVICE"
+msgstr "오디오 장치"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BACKGROUND_AUDIO"
+msgstr "백그라운드 오디오"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MASTER_VOLUME"
+msgstr "마스터 볼륨"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MUSIC_VOLUME"
+msgstr "음악 볼륨"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_SFX_VOLUME"
+msgstr "효과음 볼륨"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_UI_VOLUME"
+msgstr "UI 볼륨"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COMPRESSOR"
+msgstr "컴프레서"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_TUTORIAL"
+msgstr "튜토리얼"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BORDERLESS_FULLSCREEN"
+msgstr "전체 창 모드"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_EXCLUSIVE_FULLSCREEN"
+msgstr "전체화면"
+
+#: scenes/ui/option/option.gd
+msgid "UI_OFF"
+msgstr "끄"
+
+#: scenes/ui/option/option.gd
+msgid "UI_ON"
+msgstr "켜"

@@ -80,3 +80,251 @@ msgstr "フレームレート制限"
 #: scenes/ui/option/option.gd
 msgid "OPTIONS_LANGUAGE"
 msgstr "言語"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_RESULT"
+msgstr "結果"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_PRESS_ANY_KEY"
+msgstr "何かキーを押してください"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_PHOTOSENSITIVITY_TITLE"
+msgstr "健康のためのご注意"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_PHOTOSENSITIVITY_BODY"
+msgstr "ごくまれに、テレビゲームなどの映像に含まれる強い光の点滅や、\nグラフィックパターンなど、光の刺激によって、てんかん性の発作や\n一時的な意識喪失などの症状を起こす人がいます。こうした経験が\n全くない方でも、ゲームプレイ中に原因不明のまま発作を起こすことが\nあります。\n\nプレイ中に、めまい、視覚の異常、目や顔のけいれん、手足のふるえや\n硬直、方向感覚の喪失、混乱、意識喪失などの症状がひとつでも\nあらわれた場合は、ただちにプレイを中止し、医師の診察を受けて\nください。\n\n発作を防ぐためのご注意：\n\n• 部屋を明るくし、画面からできるだけ離れてプレイしてください。\n• 疲れているときはプレイを控えてください。\n• ご自身またはご家族にてんかんや発作の経験がある場合は、\n  プレイする前に必ず医師にご相談ください."
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_HEARING_PROTECTION"
+msgstr "聴力を損なうことのないよう、大音量で長時間プレイしないでください。"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_TAKE_BREAKS"
+msgstr "長時間のプレイの際は、適度な休憩をとってください。"
+
+#: scenes/boot/warning_screen.gd
+msgid "UI_PRESS_ANY_KEY_OR_WAIT"
+msgstr "何かキーを押すか7秒待つ"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_RATE"
+msgstr "達成率"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_ULTIMATE"
+msgstr "アルティメット"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_PERFECT"
+msgstr "パーフェクト"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_GREAT"
+msgstr "グレート"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_GOOD"
+msgstr "グッド"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_MISS"
+msgstr "ミス"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_FAST"
+msgstr "速い"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_SLOW"
+msgstr "遅い"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_NO_RECENT_PLAYS"
+msgstr "最近のプレイ記録がありません。"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_SCORE"
+msgstr "スコア"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_RANK"
+msgstr "ランク"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_MAX_COMBO"
+msgstr "最大コンボ"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_PERCENT"
+msgstr "達成率"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_RATING"
+msgstr "レーティング"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_JUDGEMENTS"
+msgstr "判定"
+
+#: scenes/gameplay/ingame/pause_popup.gd
+msgid "UI_RESUME"
+msgstr "再開"
+
+#: scenes/gameplay/ingame/pause_popup.gd
+msgid "UI_RESTART"
+msgstr "リスタート"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_SELECT_MUSIC"
+msgstr "曲選択"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_NO_SONGS_FOUND"
+msgstr "曲が見つかりません"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_OPTIONS"
+msgstr "オプション"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_GAME_START"
+msgstr "スタート"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_CONFIRM"
+msgstr "決定"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_PROFILE"
+msgstr "プロフィール"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_OPTION"
+msgstr "オプション"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_CREDITS"
+msgstr "クレジット"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_NONE"
+msgstr "なし"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_MIRROR"
+msgstr "ミラー"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_FADE_IN"
+msgstr "フェードイン"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_FADE_OUT"
+msgstr "フェードアウト"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_ALL_EXCEPT_ULTIMATE"
+msgstr "アルティメット以外すべて"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_BELOW_PERFECT"
+msgstr "パーフェクト未満のみ"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_HIDE"
+msgstr "グッド以下のみ"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_OFF"
+msgstr "表示しない"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_SCORE"
+msgstr "スコア"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_COMBO"
+msgstr "コンボ"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_SUDDEN_COUNT"
+msgstr "サドンデスカウント"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_OFF"
+msgstr "表示しない"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_FIXED_SUDDEN"
+msgstr "サドンデス (固定)"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_RESTART_REQUIRED"
+msgstr "再起動が必要です"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COLOR_MODE"
+msgstr "カラーモード"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_ANTIALIASING"
+msgstr "アンチエイリアシング"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_LOW_SPEC"
+msgstr "低スペックモード"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_BUFFER"
+msgstr "オーディオバッファ"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_DEVICE"
+msgstr "オーディオデバイス"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BACKGROUND_AUDIO"
+msgstr "バックグラウンドオーディオ"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MASTER_VOLUME"
+msgstr "マスター音量"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MUSIC_VOLUME"
+msgstr "音楽音量"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_SFX_VOLUME"
+msgstr "効果音音量"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_UI_VOLUME"
+msgstr "UI音量"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COMPRESSOR"
+msgstr "コンプレッサー"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_TUTORIAL"
+msgstr "チュートリアル"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BORDERLESS_FULLSCREEN"
+msgstr "ボーダーレスウィンドウ"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_EXCLUSIVE_FULLSCREEN"
+msgstr "フルスクリーン"
+
+#: scenes/ui/option/option.gd
+msgid "UI_OFF"
+msgstr "オフ"
+
+#: scenes/ui/option/option.gd
+msgid "UI_ON"
+msgstr "オン"

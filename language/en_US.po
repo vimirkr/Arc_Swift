@@ -80,3 +80,251 @@ msgstr "Frame Late Limits"
 #: scenes/ui/option/option.gd
 msgid "OPTIONS_LANGUAGE"
 msgstr "Language"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_RESULT"
+msgstr "Result"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_PRESS_ANY_KEY"
+msgstr "Press Any Key"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_PHOTOSENSITIVITY_TITLE"
+msgstr "WARNING: READ BEFORE PLAYING"
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_PHOTOSENSITIVITY_BODY"
+msgstr "A very small percentage of individuals may experience epileptic\nseizures when exposed to certain light patterns or flashing lights.\nExposure to certain patterns or backgrounds on a computer screen,\nor while playing video games, may induce an epileptic seizure in these\nindividuals. Certain conditions may induce previously undetected\nepileptic symptoms even in persons who have no history of prior\nseizures or epilepsy.\n\nIf you, or anyone in your family, have an epileptic condition, consult\nyour doctor prior to playing. If you experience any of the following\nsymptoms while playing a video game — dizziness, altered vision, eye\nor muscle twitches, loss of awareness, disorientation, any involuntary\nmovement, or convulsions — IMMEDIATELY discontinue use and\nconsult your doctor before resuming play.\n\nPRECAUTIONS:\n\n• Play in a well-lit room.\n• Do not play when you are tired or fatigued.\n• Consult your doctor before playing if you or any of your relatives\n  have a history of seizures or epilepsy."
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_HEARING_PROTECTION"
+msgstr "To prevent possible hearing damage, do not listen at high volume levels for long periods."
+
+#: scenes/boot/warning_screen.gd
+msgid "WARNING_TAKE_BREAKS"
+msgstr "Please take regular breaks during long play sessions."
+
+#: scenes/boot/warning_screen.gd
+msgid "UI_PRESS_ANY_KEY_OR_WAIT"
+msgstr "Press Any Key or Wait 7 Seconds"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_RATE"
+msgstr "Rate"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_ULTIMATE"
+msgstr "Ultimate"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_PERFECT"
+msgstr "Perfect"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_GREAT"
+msgstr "Great"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_GOOD"
+msgstr "Good"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_JUDGEMENT_MISS"
+msgstr "Miss"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_FAST"
+msgstr "Fast"
+
+#: scenes/gameplay/result/result.gd
+msgid "UI_SLOW"
+msgstr "Slow"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_NO_RECENT_PLAYS"
+msgstr "No recent plays found."
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_SCORE"
+msgstr "SCORE"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_RANK"
+msgstr "RANK"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_MAX_COMBO"
+msgstr "MAX COMBO"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_PERCENT"
+msgstr "PERCENT"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_RATING"
+msgstr "RATING"
+
+#: scenes/ui/user_profile/user_profile.gd
+msgid "UI_JUDGEMENTS"
+msgstr "Judgements"
+
+#: scenes/gameplay/ingame/pause_popup.gd
+msgid "UI_RESUME"
+msgstr "Resume"
+
+#: scenes/gameplay/ingame/pause_popup.gd
+msgid "UI_RESTART"
+msgstr "Restart"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_SELECT_MUSIC"
+msgstr "Select Music"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_NO_SONGS_FOUND"
+msgstr "NO SONGS FOUND"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_OPTIONS"
+msgstr "Options"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_GAME_START"
+msgstr "START"
+
+#: scenes/gameplay/select_song/select_song.gd
+msgid "UI_CONFIRM"
+msgstr "Confirm"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_PROFILE"
+msgstr "Profile"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_OPTION"
+msgstr "Option"
+
+#: scenes/main_menu/main_menu.gd
+msgid "UI_CREDITS"
+msgstr "Credits"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_NONE"
+msgstr "None"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_MIRROR"
+msgstr "Mirror"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_FADE_IN"
+msgstr "Fade In"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "EFFECT_FADE_OUT"
+msgstr "Fade Out"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_ALL_EXCEPT_ULTIMATE"
+msgstr "All Except Ultimate"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_BELOW_PERFECT"
+msgstr "Below Perfect"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_HIDE"
+msgstr "Good or Below"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "JUDGEMENT_OFF"
+msgstr "Off"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_SCORE"
+msgstr "Score"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_COMBO"
+msgstr "Combo"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_SUDDEN_COUNT"
+msgstr "Sudden Death Count"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_OFF"
+msgstr "Off"
+
+#: scenes/ui/ingame_options/ingame_option_popup.gd
+msgid "CENTER_DISPLAY_FIXED_SUDDEN"
+msgstr "Sudden Death (Fixed)"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_RESTART_REQUIRED"
+msgstr "Restart Required"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COLOR_MODE"
+msgstr "Color Mode"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_ANTIALIASING"
+msgstr "Anti-Aliasing"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_LOW_SPEC"
+msgstr "Low Spec Mode"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_BUFFER"
+msgstr "Audio Buffer"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_AUDIO_DEVICE"
+msgstr "Audio Device"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BACKGROUND_AUDIO"
+msgstr "Background Audio"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MASTER_VOLUME"
+msgstr "Master Volume"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_MUSIC_VOLUME"
+msgstr "Music Volume"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_SFX_VOLUME"
+msgstr "SFX Volume"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_UI_VOLUME"
+msgstr "UI Volume"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_COMPRESSOR"
+msgstr "Compressor"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_TUTORIAL"
+msgstr "Tutorial"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_BORDERLESS_FULLSCREEN"
+msgstr "Borderless Fullscreen"
+
+#: scenes/ui/option/option.gd
+msgid "OPTIONS_EXCLUSIVE_FULLSCREEN"
+msgstr "Exclusive Fullscreen"
+
+#: scenes/ui/option/option.gd
+msgid "UI_OFF"
+msgstr "Off"
+
+#: scenes/ui/option/option.gd
+msgid "UI_ON"
+msgstr "On"

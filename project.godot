@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ARC_SHIFT"
+config/name="ARC_Swift"
 run/main_scene="uid://cg80ayjadyjuc"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/show_image=false
@@ -25,6 +25,21 @@ ProfileData="*res://globals/ProfileData.gd"
 UserSettings="*res://globals/UserSettings.gd"
 GameplayData="*res://globals/GameplayData.gd"
 TextureLoader="*res://globals/TextureLoader.gd"
+<<<<<<< Updated upstream
+=======
+GlobalEnums="*res://globals/GlobalEnums.gd"
+GDAIMCPRuntime="*res://addons/gdai-mcp-plugin-godot/gdai_mcp_runtime.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+>>>>>>> Stashed changes
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdai-mcp-plugin-godot/plugin.cfg")
 
 [game]
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3l1o8exr8sqo"]
+
+[ext_resource type="Script" uid="uid://bemakqjlpaecs" path="res://scenes/gameplay/ingame/Rail.gd" id="1_abcde"]
+
+[node name="Rail" type="Node2D"]
+script = ExtResource("1_abcde")
+judge_y = 880.0

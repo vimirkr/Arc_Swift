@@ -12,7 +12,13 @@ var _is_transitioning = false
 func _ready():
 	# Update text based on the current language
 	title_label.text = tr("WARNING_PHOTOSENSITIVITY_TITLE")
-	body_label.text = tr("WARNING_PHOTOSENSITIVITY_BODY")
+	
+	# 경고문 조합: 광과민성 + 청력 보호 + 휴식 권장
+	var warning_text = tr("WARNING_PHOTOSENSITIVITY_BODY")
+	warning_text += "\n\n" + tr("WARNING_HEARING_PROTECTION")
+	warning_text += "\n\n" + tr("WARNING_TAKE_BREAKS")
+	body_label.text = warning_text
+	
 	continue_label.text = tr("UI_PRESS_ANY_KEY_OR_WAIT")
 
 	# Set the timer to 7 seconds, one-shot (only runs once).

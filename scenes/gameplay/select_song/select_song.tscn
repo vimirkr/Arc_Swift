@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dybl4n6mrl282"]
+[gd_scene load_steps=3 format=3 uid="uid://dybl4n6mrl282"]
 
 [ext_resource type="Script" uid="uid://bplxc63nk7j8n" path="res://scenes/gameplay/select_song/select_song.gd" id="1_e40r5"]
+[ext_resource type="PackedScene" uid="uid://0nukdkk1f4bu" path="res://scenes/ui/ingame_options/ingame_option_popup.tscn" id="2_ingame_options"]
 
 [node name="SelectSong" type="Control"]
 layout_mode = 3
@@ -43,32 +44,34 @@ custom_minimum_size = Vector2(150, 80)
 layout_mode = 2
 focus_mode = 0
 
-[node name="SubHeader" type="VBoxContainer" parent="MarginContainer/MainLayout"]
-custom_minimum_size = Vector2(0, 100)
+[node name="SubHeader" type="HBoxContainer" parent="MarginContainer/MainLayout"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CategoryButton" type="Button" parent="MarginContainer/MainLayout/SubHeader"]
+[node name="LeftButton" type="Button" parent="MarginContainer/MainLayout/SubHeader"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_vertical = 3
-focus_mode = 0
-
-[node name="DirectionButtons" type="HBoxContainer" parent="MarginContainer/MainLayout/SubHeader"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="LeftButton" type="Button" parent="MarginContainer/MainLayout/SubHeader/DirectionButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
 focus_mode = 0
 text = "<"
 
-[node name="RightButton" type="Button" parent="MarginContainer/MainLayout/SubHeader/DirectionButtons"]
+[node name="LeftSpacer" type="Control" parent="MarginContainer/MainLayout/SubHeader"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
+
+[node name="CategoryButton" type="Button" parent="MarginContainer/MainLayout/SubHeader"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+
+[node name="RightSpacer" type="Control" parent="MarginContainer/MainLayout/SubHeader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="RightButton" type="Button" parent="MarginContainer/MainLayout/SubHeader"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 focus_mode = 0
 text = ">"
 
@@ -111,6 +114,9 @@ visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="IngameOptionPopup" parent="." instance=ExtResource("2_ingame_options")]
+layout_mode = 1
 
 [node name="PreviewPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

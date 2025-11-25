@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://l1r3ck3bucii"]
 
 [ext_resource type="Script" uid="uid://dxio2pfv3k3no" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
-[ext_resource type="Texture2D" uid="uid://dl8r4r6hfepda" path="res://scenes/main_menu/temp_image.png" id="1_fsom3"]
+[ext_resource type="Texture2D" uid="uid://e21fy4oa1jni" path="res://scenes/main_menu/temp_image.jpg" id="2_0ebjn"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,12 +14,9 @@ script = ExtResource("1_0ebjn")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_fsom3")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_0ebjn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 400)

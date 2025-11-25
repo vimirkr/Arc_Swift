@@ -2,11 +2,12 @@ extends Control
 
 #-- UI Node References (MODIFIED) --
 @onready var cover_stage = $MarginContainer/MainLayout/Content/MarginContainer/CoverStage
-@onready var left_button = $MarginContainer/MainLayout/SubHeader/DirectionButtons/LeftButton
-@onready var right_button = $MarginContainer/MainLayout/SubHeader/DirectionButtons/RightButton
+@onready var left_button = $MarginContainer/MainLayout/SubHeader/LeftButton
+@onready var right_button = $MarginContainer/MainLayout/SubHeader/RightButton
 @onready var category_button = $MarginContainer/MainLayout/SubHeader/CategoryButton
 @onready var difficulty_buttons_container = $MarginContainer/MainLayout/Footer/DifficultyButtonsContainer
 @onready var options_menu = $OptionsMenu
+@onready var ingame_option_popup = $IngameOptionPopup
 @onready var back_button = $MarginContainer/MainLayout/Header/BackButton
 @onready var options_button = $MarginContainer/MainLayout/Header/OptionsButton
 @onready var start_button = $MarginContainer/MainLayout/Footer/StartButton
@@ -31,7 +32,7 @@ const LONG_SWIPE_JUMP = 10
 #-- Visual Settings --
 const MOVE_DURATION = 0.25
 const SELECTED_SCALE = Vector2(1.0, 1.0)
-const UNSELECTED_SCALE = Vector2(0.8, 0.8)
+const UNSELECTED_SCALE = Vector2(0.75, 0.75)
 const UNSELECTED_ALPHA = 0.7
 
 #-- Dynamic Layout Variables --
@@ -78,7 +79,7 @@ func _ready():
 		TextureLoader.texture_loaded.connect(_on_texture_loaded)
 
 	if categories.is_empty():
-		category_button.text = "NO SONGS FOUND"
+		category_button.text = tr("UI_NO_SONGS_FOUND")
 		start_button.disabled = true
 		left_button.disabled = true
 		right_button.disabled = true
@@ -97,6 +98,7 @@ func _exit_tree():
 func _initialize_covers():
 	_calculate_marker_positions()
 	_setup_album_covers()
+	_update_display(false)  # 초기 표시는 애니메이션 없이
 	_update_display(false)
 
 func _input(event):
@@ -253,18 +255,41 @@ func _update_display(use_animation: bool = true):
 		
 		path_to_cover_map[jacket_path] = cover_node
 		
-		cover_node.set_info(full_song_data)
+		# 차트 데이터 로드 (모든 앨범 커버에서 표시)
+		var is_selected = (i == 0)
+		var chart_data = {}
+		var is_regular = true  # 기본값: 정규 난이도
+		
+		# 선택된 커버는 현재 난이도, 선택되지 않은 커버는 첫 번째 난이도 사용
+		if song_entry.has("charts") and not song_entry.charts.is_empty():
+			var diff_index = 0
+			if is_selected:
+				diff_index = current_difficulty_index
+				if diff_index >= song_entry.charts.size():
+					diff_index = 0
+			var chart_info = song_entry.charts[diff_index]
+			var chart_path = categories[current_category_index].path + chart_info.file
+			chart_data = _load_chart_metadata(chart_path)
+			is_regular = chart_data.get("is_regular_difficulty", true)
+		
+		# 커버 먼저 표시
+		cover_node.visible = true
+		
+		# 노드가 준비될 때까지 대기
+		if not cover_node.is_node_ready():
+			await cover_node.ready
+		
+		# 앨범 커버에 노래 정보와 차트 정보 전달
+		cover_node.set_border_color(is_regular)
+		cover_node.set_song_data(full_song_data, chart_data)
 		
 		if TextureLoader.cache.has(jacket_path):
 			cover_node.set_texture(TextureLoader.cache[jacket_path])
 		else:
 			cover_node.set_texture(null) 
 			TextureLoader.request_texture(jacket_path)
-			
-		cover_node.visible = true
 
 		var target_pos = markers[i]
-		var is_selected = (i == 0)
 		var target_scale = SELECTED_SCALE if is_selected else UNSELECTED_SCALE
 		var target_alpha = 1.0 if is_selected else UNSELECTED_ALPHA
 		cover_node.z_index = 5 - abs(i)
@@ -410,6 +435,32 @@ func _on_start_button_pressed():
 			# [MODIFIED] _update_ui_text() was missing here, which is why the button text didn't update
 			_update_ui_text()
 
+# 차트 메타데이터 로드 (charter, is_regular_difficulty)
+func _load_chart_metadata(chart_path: String) -> Dictionary:
+	var result = {}
+	if not FileAccess.file_exists(chart_path):
+		return result
+	
+	var file = FileAccess.open(chart_path, FileAccess.READ)
+	if file == null:
+		return result
+	
+	var json_data = JSON.parse_string(file.get_as_text())
+	file.close()
+	
+	if json_data and typeof(json_data) == TYPE_DICTIONARY:
+		# 새 포맷: metadata 안에 있음
+		if json_data.has("metadata"):
+			var metadata = json_data.get("metadata", {})
+			result["charter"] = metadata.get("charter", "")
+			result["is_regular_difficulty"] = metadata.get("is_regular_difficulty", true)
+		# 레거시 포맷: 최상위에 있음
+		else:
+			result["charter"] = json_data.get("charter", "")
+			result["is_regular_difficulty"] = json_data.get("is_regular_difficulty", true)
+	
+	return result
+
 func _on_difficulty_selected(index: int):
 	current_difficulty_index = index
 	_update_difficulty_buttons()
@@ -418,4 +469,9 @@ func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 func _on_options_button_pressed():
-	options_menu.show()
+	if ingame_option_popup:
+		ingame_option_popup.show()
+	else:
+		# Fallback to old options menu if popup not found
+		if options_menu:
+			options_menu.show()

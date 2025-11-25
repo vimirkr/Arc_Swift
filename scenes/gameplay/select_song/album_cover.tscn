@@ -16,33 +16,80 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_euvrf")
 
-[node name="Outline" type="ColorRect" parent="."]
+[node name="BorderRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.27451, 1, 1)
+color = Color(1, 1, 1, 1)
 
-[node name="InfoBox" type="VBoxContainer" parent="Outline"]
+[node name="InnerMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
-[node name="Album_Jacket" type="TextureRect" parent="Outline/InfoBox"]
+[node name="Background" type="ColorRect" parent="InnerMargin"]
+layout_mode = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="ContentBox" type="VBoxContainer" parent="InnerMargin"]
+layout_mode = 2
+
+[node name="AlbumJacket" type="TextureRect" parent="InnerMargin/ContentBox"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TitleLabel" type="Label" parent="Outline/InfoBox"]
-custom_minimum_size = Vector2(0, 30)
+[node name="InfoContainer" type="VBoxContainer" parent="InnerMargin/ContentBox"]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 3
+
+[node name="TitleLabel" type="Label" parent="InnerMargin/ContentBox/InfoContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "Song Title"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ArtistBpmLabel" type="Label" parent="Outline/InfoBox"]
-custom_minimum_size = Vector2(0, 30)
+[node name="ArtistLabel" type="Label" parent="InnerMargin/ContentBox/InfoContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 14
+text = "Artist Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CharterLabel" type="Label" parent="InnerMargin/ContentBox/InfoContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 12
+text = "Charter: Name"
+horizontal_alignment = 0
+vertical_alignment = 1
 autowrap_mode = 2

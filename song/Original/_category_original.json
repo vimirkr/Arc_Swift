@@ -8,5 +8,15 @@
 	"charts": [
 	  { "difficulty": "EZ", "level": 2, "constants": [2, 0.1], "file": "Chart/example_Chart_EZ.json" }
 	]
+  },
+  {
+	"song_id": "swipper",
+	"jacket_file": "temp_image2",
+	"audio_file": "Swipper.wav",
+	"preview_start_ms": 10000,
+	"preview_end_ms": 40000,
+	"charts": [
+	  { "difficulty": "NM", "level": 1, "constants": [1, 0.1], "file": "Chart/Swipper_Chart_NM.json" }
+	]
   }
 ]

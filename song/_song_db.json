@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "TestOGGFLY": {
     "title": "TestOGGFLY",
     "artist": "fly",
@@ -33,5 +34,16 @@
     "title": "TestOGGChaos",
     "artist": "chaos",
     "bpm_string": "300"
+=======
+  "example_no_commercial": {
+	"title": "Example Song",
+	"artist": "Example Artist",
+	"bpm_string": "100"
+  },
+  "swipper": {
+	"title": "Hybrid Rhythm Chart",
+	"artist": "Unknown",
+	"bpm_string": "120"
+>>>>>>> Stashed changes
   }
 }

@@ -11,15 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7dy02")
 
-[node name="backgroundColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.905133, 0.338659, 0.703656, 1)
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15

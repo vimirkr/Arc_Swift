@@ -1,6 +1,8 @@
 {
 	"bpm": 100,
 	"offset": 0,
+	"charter": "Example Charter",
+	"is_regular_difficulty": true,
 	"charts": [
 		{
 			"uuid": "f2b4c398-e165-4654-84d3-1a4c9d6a31a6",

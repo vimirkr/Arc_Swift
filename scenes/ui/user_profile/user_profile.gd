@@ -38,7 +38,7 @@ func _populate_recent_tab():
 	
 	if ProfileData.player_data.recent_plays.is_empty():
 		var no_data_label = Label.new()
-		no_data_label.text = "No recent plays found."
+		no_data_label.text = tr("UI_NO_RECENT_PLAYS")
 		no_data_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		recent_list_container.add_child(no_data_label)
 		return
@@ -49,15 +49,15 @@ func _populate_recent_tab():
 		entry.get_node("VBoxContainer/HBoxContainer/SongTitleLabel").text = play_data.song_id
 		
 		var grid = entry.get_node("VBoxContainer/HBoxContainer/GridContainer")
-		grid.get_node("ScoreLabel").text = "SCORE: %d" % play_data.score
-		grid.get_node("RankLabel").text = "RANK: %s" % play_data.rank
-		grid.get_node("ComboLabel").text = "MAX COMBO: %d/%d" % [play_data.max_combo, play_data.total_notes]
-		grid.get_node("PercentLabel").text = "PERCENT: %.2f%%" % play_data.judgement_percent
-		grid.get_node("FastSlowLabel").text = "FAST: %d / SLOW: %d" % [play_data.fast_slow.fast, play_data.fast_slow.slow]
-		grid.get_node("RatingLabel").text = "RATING: ---"
+		grid.get_node("ScoreLabel").text = tr("UI_SCORE") + ": %d" % play_data.score
+		grid.get_node("RankLabel").text = tr("UI_RANK") + ": %s" % play_data.rank
+		grid.get_node("ComboLabel").text = tr("UI_MAX_COMBO") + ": %d/%d" % [play_data.max_combo, play_data.total_notes]
+		grid.get_node("PercentLabel").text = tr("UI_PERCENT") + ": %.2f%%" % play_data.judgement_percent
+		grid.get_node("FastSlowLabel").text = tr("UI_FAST") + ": %d / " + tr("UI_SLOW") + ": %d" % [play_data.fast_slow.fast, play_data.fast_slow.slow]
+		grid.get_node("RatingLabel").text = tr("UI_RATING") + ": ---"
 		
 		var jd = play_data.judgements
-		var judgement_text = "Judgements | Ultimate: %d / Perfect: %d / Great: %d / Good: %d / Miss: %d" % [jd.ultimate, jd.perfect, jd.great, jd.good, jd.miss]
+		var judgement_text = tr("UI_JUDGEMENTS") + " | " + tr("UI_JUDGEMENT_ULTIMATE") + ": %d / " + tr("UI_JUDGEMENT_PERFECT") + ": %d / " + tr("UI_JUDGEMENT_GREAT") + ": %d / " + tr("UI_JUDGEMENT_GOOD") + ": %d / " + tr("UI_JUDGEMENT_MISS") + ": %d" % [jd.ultimate, jd.perfect, jd.great, jd.good, jd.miss]
 		entry.get_node("VBoxContainer/JudgementCountsLabel").text = judgement_text
 		
 		recent_list_container.add_child(entry)

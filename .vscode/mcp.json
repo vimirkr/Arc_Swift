@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "gdai-mcp-server": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "C:/Users/Vimir/Desktop/arc_swift/Arc_Swift/addons/gdai-mcp-plugin-godot/gdai_mcp_server.py"]
+    }
+  }
+}
