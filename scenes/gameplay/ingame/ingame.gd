@@ -24,7 +24,12 @@ var current_state = GameState.LOADING
 const PERFECT_MS = 30
 const GREAT_MS = 60
 const GOOD_MS = 100
-const MISS_MS = 150 # 이 시간 이후에 치면 Miss, 이 시간 전에 치면 Fast
+const MISS_MS = 100 # GOOD 범위를 벗어나면 즉시 Miss
+
+# -- 스와이프 후속 노트 판정 타이밍 (더 널널한 판정) --
+const SWIPE_PERFECT_MS = 75
+const SWIPE_GREAT_MS = 100
+const SWIPE_GOOD_MS = 125
 
 # -- 입력 버퍼 시스템 --
 var input_buffer: Array[Dictionary] = [] # 입력 이벤트 버퍼
@@ -46,6 +51,14 @@ var chart_data: Dictionary
 var parsed_note_list: Array[Dictionary] = [] 
 var note_object_scene = preload("res://scenes/gameplay/ingame/NoteObject.tscn")
 var rails: Array[Rail] = []
+
+# -- LONG 노트 홀드 상태 추적 --
+# 각 레인별로 현재 홀드 중인 LONG 노트를 추적 (lane_index -> NoteObject)
+var holding_long_notes: Dictionary = {}
+
+# -- 스와이프 노트 연결 관리 --
+# 스와이프 그룹별 스폰된 노트 목록 (group_id -> Array[NoteObject])
+var spawned_swipe_notes_by_group: Dictionary = {}
 
 # -- 판정 통계 변수 --
 var current_combo: int = 0
@@ -204,6 +217,8 @@ func _process(delta):
 	match current_state:
 		GameState.PLAYING:
 			_process_input_buffer() # 버퍼된 입력 처리
+			_process_held_keys_for_swipe() # 스와이프용 키 홀드 체크
+			_process_holding_long_notes() # LONG 노트 홀드 상태 체크
 			_update_gameplay(delta)
 			_update_center_display()  # Center Display 업데이트
 			_check_song_end()  # 곡 종료 확인
@@ -458,6 +473,10 @@ func _update_gameplay(delta: float):
 	for lane_array in active_notes_by_lane:
 		for note_obj in lane_array:
 			if is_instance_valid(note_obj):
+				# 홀드 중인 LONG 노트는 별도 처리되므로 건너뜀
+				if note_obj.note_data.get("is_holding", false):
+					continue
+				
 				var wants_to_die = note_obj.update_position(current_song_time_ms)
 				
 				if current_state == GameState.PLAYING:
@@ -469,7 +488,14 @@ func _update_gameplay(delta: float):
 						continue 
 					
 					var time_diff = note_obj.note_data.time_ms - current_song_time_ms
-					if time_diff < -MISS_MS: 
+					
+					# 노트 타입에 따른 Miss 판정 시점 결정
+					var miss_threshold = MISS_MS
+					if note_obj.note_data.note_type == GlobalEnums.NoteType.SWIPE:
+						var is_head = note_obj.note_data.get("is_swipe_head", false)
+						miss_threshold = MISS_MS if is_head else SWIPE_GOOD_MS
+					
+					if time_diff < -miss_threshold: 
 						if not notes_to_remove.has(note_obj): 
 							notes_to_remove.append(note_obj)
 							_show_judgement("Miss (Late)")
@@ -509,6 +535,53 @@ func _spawn_note_object(note_data: Dictionary):
 	
 	game_gear_node.add_child(note_obj)
 	active_notes_by_lane[lane_index].push_back(note_obj)
+	
+	# 겹노트 감지: 같은 레인, 같은 시간에 이미 노트가 있으면 겹노트로 표시
+	_check_and_mark_stacked_notes(lane_index, note_obj)
+	
+	# 스와이프 노트: 같은 그룹의 이전 노트와 연결
+	if note_data.note_type == GlobalEnums.NoteType.SWIPE:
+		_setup_swipe_connection(note_obj)
+
+
+# 겹노트 감지 및 표시
+func _check_and_mark_stacked_notes(lane_index: int, new_note: NoteObject):
+	var lane_array: Array = active_notes_by_lane[lane_index]
+	var new_time = new_note.note_data.time_ms
+	
+	# 같은 레인의 다른 노트들과 시간 비교 (±50ms 이내면 겹노트)
+	for existing_note in lane_array:
+		if existing_note == new_note:
+			continue
+		if not is_instance_valid(existing_note):
+			continue
+		
+		var time_diff = abs(existing_note.note_data.time_ms - new_time)
+		if time_diff < 50.0:  # 50ms 이내면 동시 노트로 판단
+			existing_note.set_stacked(true)
+			new_note.set_stacked(true)
+
+
+# 스와이프 노트 연결선 설정
+func _setup_swipe_connection(note_obj: NoteObject):
+	var group_id = note_obj.note_data.get("swipe_group_id", -1)
+	if group_id == -1:
+		return
+	
+	# 그룹 배열 초기화
+	if not spawned_swipe_notes_by_group.has(group_id):
+		spawned_swipe_notes_by_group[group_id] = []
+	
+	var group_notes: Array = spawned_swipe_notes_by_group[group_id]
+	
+	# 이전 노트와 연결 (시간순으로 스폰되므로 마지막 노트가 이전 노트)
+	if not group_notes.is_empty():
+		var prev_note = group_notes.back()
+		if is_instance_valid(prev_note):
+			prev_note.setup_swipe_connection(note_obj)
+	
+	# 현재 노트를 그룹에 추가
+	group_notes.append(note_obj)
 
 
 # [NEW] 버퍼 시스템에서 호출 - 입력 처리 가능 여부를 반환
@@ -519,10 +592,20 @@ func _try_process_lane_input(lane_index: int) -> bool:
 		return false # 처리할 노트 없음
 		
 	var target_note: NoteObject = lane_array[0]
+	var note_type = target_note.note_data.note_type
 
-	if target_note.note_data.note_type != GlobalEnums.NoteType.TAP:
-		return false # TAP 노트만 처리
+	if note_type == GlobalEnums.NoteType.TAP:
+		return _process_tap_note(lane_index, target_note)
+	elif note_type == GlobalEnums.NoteType.SWIPE:
+		return _process_swipe_note(lane_index, target_note)
+	elif note_type == GlobalEnums.NoteType.LONG:
+		return _process_long_note_start(lane_index, target_note)
+	
+	return false
 
+
+# TAP 노트 판정 처리
+func _process_tap_note(lane_index: int, target_note: NoteObject) -> bool:
 	var time_diff = target_note.note_data.time_ms - current_song_time_ms
 		
 	# GOOD 판정 범위를 벗어난 입력은 처리하지 않음
@@ -531,22 +614,18 @@ func _try_process_lane_input(lane_index: int) -> bool:
 
 	# 판정 처리 및 점수 계산
 	var score_multiplier: float = 0.0
-	var judgement_type: String = ""
 	
 	if abs(time_diff) <= PERFECT_MS:
-		judgement_type = "perfect"
 		_show_judgement("PERFECT")
 		score_multiplier = 1.0  # 100%
 		current_combo += 1
 		judgement_counts["perfect"] += 1
 	elif abs(time_diff) <= GREAT_MS:
-		judgement_type = "great"
 		_show_judgement("GREAT")
 		score_multiplier = 0.75  # 75%
 		current_combo += 1
 		judgement_counts["great"] += 1
 	elif abs(time_diff) <= GOOD_MS:
-		judgement_type = "good"
 		_show_judgement("GOOD")
 		score_multiplier = 0.5  # 50%
 		current_combo += 1
@@ -566,7 +645,106 @@ func _try_process_lane_input(lane_index: int) -> bool:
 	active_notes_by_lane[lane_index].pop_front() 
 	target_note.queue_free()
 	
-	return true # 성공적으로 처리됨
+	return true
+
+
+# SWIPE 노트 판정 처리 (첫 노트 vs 후속 노트 구분)
+func _process_swipe_note(lane_index: int, target_note: NoteObject) -> bool:
+	var time_diff = target_note.note_data.time_ms - current_song_time_ms
+	var is_head = target_note.note_data.get("is_swipe_head", false)
+	
+	# 판정 범위 결정 (첫 노트: 일반 TAP, 후속: 더 널널한 판정)
+	var perfect_threshold = PERFECT_MS if is_head else SWIPE_PERFECT_MS
+	var great_threshold = GREAT_MS if is_head else SWIPE_GREAT_MS
+	var good_threshold = GOOD_MS if is_head else SWIPE_GOOD_MS
+	
+	# 판정 범위를 벗어난 입력은 처리하지 않음
+	if abs(time_diff) > good_threshold:
+		return false
+
+	# 판정 처리 및 점수 계산
+	var score_multiplier: float = 0.0
+	
+	if abs(time_diff) <= perfect_threshold:
+		_show_judgement("PERFECT")
+		score_multiplier = 1.0
+		current_combo += 1
+		judgement_counts["perfect"] += 1
+	elif abs(time_diff) <= great_threshold:
+		_show_judgement("GREAT")
+		score_multiplier = 0.75
+		current_combo += 1
+		judgement_counts["great"] += 1
+	elif abs(time_diff) <= good_threshold:
+		_show_judgement("GOOD")
+		score_multiplier = 0.5
+		current_combo += 1
+		judgement_counts["good"] += 1
+	
+	# Fast/Slow 판정
+	if time_diff < 0:
+		fast_count += 1
+	elif time_diff > 0:
+		slow_count += 1
+	
+	# 점수 누적
+	total_score_points += score_multiplier
+	processed_notes_count += 1
+	
+	# 노트 제거
+	active_notes_by_lane[lane_index].pop_front() 
+	target_note.queue_free()
+	
+	return true
+
+
+# LONG 노트 시작 판정 처리 (시작 시 TAP과 동일한 규칙 적용)
+func _process_long_note_start(lane_index: int, target_note: NoteObject) -> bool:
+	var time_diff = target_note.note_data.time_ms - current_song_time_ms
+		
+	# GOOD 판정 범위를 벗어난 입력은 처리하지 않음
+	if abs(time_diff) > GOOD_MS:
+		return false
+
+	# 판정 처리 및 점수 계산 (TAP과 동일)
+	var score_multiplier: float = 0.0
+	
+	if abs(time_diff) <= PERFECT_MS:
+		_show_judgement("PERFECT")
+		score_multiplier = 1.0
+		current_combo += 1
+		judgement_counts["perfect"] += 1
+	elif abs(time_diff) <= GREAT_MS:
+		_show_judgement("GREAT")
+		score_multiplier = 0.75
+		current_combo += 1
+		judgement_counts["great"] += 1
+	elif abs(time_diff) <= GOOD_MS:
+		_show_judgement("GOOD")
+		score_multiplier = 0.5
+		current_combo += 1
+		judgement_counts["good"] += 1
+	
+	# Fast/Slow 판정
+	if time_diff < 0:
+		fast_count += 1
+	elif time_diff > 0:
+		slow_count += 1
+	
+	# 점수 누적
+	total_score_points += score_multiplier
+	processed_notes_count += 1
+	
+	# LONG 노트를 홀드 상태로 전환 (제거하지 않고 유지)
+	# 노트를 활성 리스트에서 제거하고 홀드 리스트로 이동
+	active_notes_by_lane[lane_index].pop_front()
+	holding_long_notes[lane_index] = target_note
+	target_note.note_data["is_holding"] = true
+	
+	return true
+	
+	return true
+
 
 func _show_judgement(judgement_text: String):
 	# Judgement Display Mode에 따라 표시 여부 결정
@@ -691,6 +869,76 @@ func _process_input_buffer():
 	# 버퍼 비우기
 	input_buffer.clear()
 
+
+# 스와이프 노트용: 키가 눌려있는 상태에서 스와이프 노트 처리
+func _process_held_keys_for_swipe():
+	if input_block_time_ms > 0.0:
+		return
+	
+	# 각 레인에 대해 키가 눌려있는지 확인
+	var lane_actions = ["lane_1", "lane_2", "lane_3", "lane_4", "lane_5", "lane_6", "lane_7"]
+	var lane_indices = [
+		GlobalEnums.Lane.SIDE_L, GlobalEnums.Lane.MID_1, GlobalEnums.Lane.MID_2,
+		GlobalEnums.Lane.MID_3, GlobalEnums.Lane.MID_4, GlobalEnums.Lane.MID_5,
+		GlobalEnums.Lane.SIDE_R
+	]
+	
+	for i in range(lane_actions.size()):
+		if Input.is_action_pressed(lane_actions[i]):
+			var lane_index = lane_indices[i]
+			var lane_array: Array = active_notes_by_lane[lane_index]
+			
+			if lane_array.is_empty():
+				continue
+			
+			var target_note: NoteObject = lane_array[0]
+			
+			# 스와이프 노트만 홀드 처리
+			if target_note.note_data.note_type == GlobalEnums.NoteType.SWIPE:
+				_try_process_lane_input(lane_index)
+
+
+# LONG 노트 홀드 상태 체크 (키를 떼면 노트 제거, 꼬리가 지나가면 자동 제거)
+func _process_holding_long_notes():
+	var lane_actions = ["lane_1", "lane_2", "lane_3", "lane_4", "lane_5", "lane_6", "lane_7"]
+	var lane_indices = [
+		GlobalEnums.Lane.SIDE_L, GlobalEnums.Lane.MID_1, GlobalEnums.Lane.MID_2,
+		GlobalEnums.Lane.MID_3, GlobalEnums.Lane.MID_4, GlobalEnums.Lane.MID_5,
+		GlobalEnums.Lane.SIDE_R
+	]
+	
+	var notes_to_release: Array = []
+	
+	for lane_index in holding_long_notes.keys():
+		var note_obj: NoteObject = holding_long_notes[lane_index]
+		
+		if not is_instance_valid(note_obj):
+			notes_to_release.append(lane_index)
+			continue
+		
+		var note_end_time_ms = note_obj.note_data.time_ms + note_obj.note_data.duration_ms
+		
+		# 꼬리가 판정선을 지나갔으면 자동 제거 (성공적으로 홀드 완료)
+		if current_song_time_ms >= note_end_time_ms:
+			notes_to_release.append(lane_index)
+			note_obj.queue_free()
+			continue
+		
+		# 홀드 중인 노트 시각적 업데이트 (높이 감소)
+		note_obj.update_holding_visual(current_song_time_ms)
+		
+		# 해당 레인의 키가 눌려있는지 확인
+		var action_index = lane_indices.find(lane_index)
+		if action_index >= 0 and action_index < lane_actions.size():
+			if not Input.is_action_pressed(lane_actions[action_index]):
+				# 키를 뗐으면 노트 제거
+				notes_to_release.append(lane_index)
+				note_obj.queue_free()
+	
+	# 홀드 목록에서 제거
+	for lane_index in notes_to_release:
+		holding_long_notes.erase(lane_index)
+
 #endregion
 
 #region Pause/Resume
@@ -763,6 +1011,16 @@ func _clear_all_notes():
 			if is_instance_valid(note_obj):
 				note_obj.queue_free()
 		lane_array.clear()
+	
+	# 홀드 중인 LONG 노트 제거
+	for lane_index in holding_long_notes.keys():
+		var note_obj = holding_long_notes[lane_index]
+		if is_instance_valid(note_obj):
+			note_obj.queue_free()
+	holding_long_notes.clear()
+	
+	# 스와이프 그룹 초기화
+	spawned_swipe_notes_by_group.clear()
 	
 	# 입력 버퍼도 초기화
 	input_buffer.clear()

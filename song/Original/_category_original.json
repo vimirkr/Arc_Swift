@@ -16,7 +16,8 @@
 	"preview_start_ms": 10000,
 	"preview_end_ms": 40000,
 	"charts": [
-	  { "difficulty": "NM", "level": 1, "constants": [1, 0.1], "file": "Chart/Swipper_Chart_NM.json" }
+	  { "difficulty": "NM", "level": 11, "constants": [11, 0.1], "file": "Chart/Swipper_Chart_NM.json" }
+	,{ "difficulty": "EZ", "level": 1, "constants": [1, 0.1], "file": "Chart/Swipper_TestChart_EZ.json" }
 	]
   }
 ]

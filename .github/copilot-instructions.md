@@ -51,13 +51,47 @@ boot.gd → splash_screen.tscn → main_menu.tscn → select_song.tscn → ingam
 - Song time tracked via `music_player.get_playback_position() * 1000.0` (milliseconds)
 - **Pre-Start Timeline**: READY state starts at `-3000ms`, increments to `0ms` over 3 seconds, then music starts
 - Note spawn timing calculated from `Rail` positions in global→local coordinate space
-- **Judgement Rules (v5 Spec)**:
-  - **Ultimate**: ±25ms (100% score)
-  - **Perfect**: ±50ms (100% score)
-  - **Great**: ±75ms (75% score)
-  - **Good**: ±100ms (50% score)
-  - **Miss**: Beyond ±100ms (0% score)
-  - Note: Always prioritize the highest judgement. Hold notes check start timing (Tap rules) and duration hold (80%+).
+- **Judgement Rules (Current Implementation)**:
+  - **TAP/LONG Notes**:
+    - **Perfect**: ±30ms (100% score)
+    - **Great**: ±60ms (75% score)
+    - **Good**: ±100ms (50% score)
+    - **Miss**: Beyond ±100ms (0% score)
+  - **SWIPE Notes (First Note)**: Same as TAP (±30/60/100ms)
+  - **SWIPE Notes (Follow-up Notes)**: More lenient timing
+    - **Perfect**: ±75ms (100% score)
+    - **Great**: ±100ms (75% score)
+    - **Good**: ±125ms (50% score)
+    - **Miss**: Beyond ±125ms (0% score)
+  - Note: Always prioritize the highest judgement.
+
+### Note Types & Processing
+
+#### TAP Notes
+- Standard single-hit notes
+- Processed via `_process_tap_note()` in `ingame.gd`
+- Input: Key press (`is_action_pressed` with just_pressed=true)
+
+#### LONG Notes (Hold)
+- Notes with duration, displayed as elongated bars (green color)
+- `time_ms`: Start time (head reaches judge line)
+- `duration_ms`: Length of hold
+- Visual: Note bottom (head) at `time_ms`, top (tail) at `time_ms + duration_ms`
+- **Processing**:
+  - Start: Judged via `_process_long_note_start()` with TAP rules
+  - Hold: Note moves to `holding_long_notes` dictionary, stays visible while key held
+  - Release: Note removed when key released OR when tail passes judge line
+  - `_process_holding_long_notes()` checks hold state every frame
+
+#### SWIPE Notes
+- Multi-lane sweeping notes with `is_swipe_head` flag
+- **First note** (`is_swipe_head = true`): Standard TAP judgement
+- **Follow-up notes** (`is_swipe_head = false`): Lenient judgement (±75/100/125ms)
+- Each note is independently judged; mid-chain misses don't break subsequent notes
+- **Input methods** (both work):
+  - Hold key and slide to next lane (mobile swipe gesture equivalent)
+  - Tap each key individually (PC keyboard friendly)
+- Processed via `_process_swipe_note()` with `_process_held_keys_for_swipe()` for hold detection
 
 ### Scoring System
 - **Combo System**: Increments on every non-Miss judgement, resets to 0 on Miss
@@ -316,17 +350,23 @@ GameGear.tscn contains 8 `Rail` nodes with `@export` properties:
 ## Known Issues & TODOs
 
 ### High Priority
-1. **Input jitter**: Despite using `_input()`, occasional dropped inputs reported. May need input buffering system
+1. **New Chart Format Implementation**: `NoteManager.gd` requires a **complete rewrite** to support the new custom JSON format (`timeline_events`), replacing the current Beatrice parser.
 2. **Note positioning**: Visual alignment issues if Rail `top_y`/`judge_y` values are incorrect
-3. **New Chart Format Implementation**: `NoteManager.gd` requires a **complete rewrite** to support the new custom JSON format (`timeline_events`), replacing the current Beatrice parser.
-4. **Judgement Logic Update**: Implement the new **Ultimate/Perfect/Great/Good** logic in `ingame.gd`, replacing the current placeholder simple judgement.
 
 ### Pending Features
-- Hold note tick scoring (currently parsed but not judged)
-- Swipe note directional validation
+- Hold note full duration scoring (currently only start timing is judged)
 - Result screen implementation (stubbed)
 - Colorblind mode application (palette defined, not applied to notes)
 - Search tags in song database
+- Ultimate judgement tier (±25ms, currently not implemented)
+
+### Completed (Recent)
+- ✅ Input buffer system (50ms buffer for precise timing)
+- ✅ SWIPE note dual-input support (tap or hold+slide)
+- ✅ SWIPE note lenient judgement for follow-up notes
+- ✅ LONG note visual rendering (head at time_ms, tail at time_ms + duration_ms)
+- ✅ Pause system with process_mode handling
+- ✅ F5 restart functionality
 
 ## Testing & Running
 

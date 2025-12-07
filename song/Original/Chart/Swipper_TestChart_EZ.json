@@ -1,0 +1,69 @@
+{
+  "metadata": {
+	"title": "Hybrid Rhythm Chart",
+	"artist": "Unknown",
+	"charter": "Hybrid Rhythm Converter",
+	"difficulty": "Easy",
+	"level": 1,
+	"bpm": 120.0,
+	"created_date": "2025-11-17T05:27:41.779929",
+	"audio_file": "Swipper.wav",
+	"is_regular_difficulty": true
+  },
+  "timeline_events": [
+	
+  ],
+  "notes": [
+	{
+	  "line": 1,
+	  "time": 1000,
+	  "type": "tap",
+	  "duration": 0
+	},
+	{
+	  "line": 3,
+	  "time": 1500,
+	  "type": "tap",
+	  "duration": 0
+	},
+	{
+	  "line": 5,
+	  "time": 2500,
+	  "type": "hold",
+	  "duration": 1000
+	},
+	{
+	  "line": 6,
+	  "time": 4500,
+	  "type": "swift",
+	  "duration": 0,
+	  "group_id": 1
+	},
+	{
+	  "line": 8,
+	  "time": 4525,
+	  "type": "swift",
+	  "duration": 0,
+	  "group_id": 1
+	},
+	{
+	  "line": 10,
+	  "time": 4550,
+	  "type": "swift",
+	  "duration": 0,
+	  "group_id": 1
+	},
+	{
+	  "line": 5,
+	  "time": 5000,
+	  "type": "tap",
+	  "duration": 0
+	},
+	{
+	  "line": 6,
+	  "time": 5000,
+	  "type": "tap",
+	  "duration": 0
+	}
+  ]
+}
