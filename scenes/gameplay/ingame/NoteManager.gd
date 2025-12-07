@@ -98,10 +98,24 @@ func _create_long_note(start_note_data, end_note_data, lane_7, tick_count):
 
 # 스와이프 노트 (시작 + 중간 + 끝) 생성하고 리스트에 추가
 func _create_swipe_notes(start_note_data, end_note_data, start_lane_7, end_lane_7):
-	var start_time_ms = start_note_data.songPos + offset_ms
-	var end_time_ms = end_note_data.songPos + offset_ms
+	# [FIX] Beatrice 링크의 startNote/endNote는 시간 순서가 아닐 수 있음
+	# 항상 시간이 먼저인 노트를 실제 시작점으로 사용
+	var actual_start_data = start_note_data
+	var actual_end_data = end_note_data
+	var actual_start_lane = start_lane_7
+	var actual_end_lane = end_lane_7
 	
-	var lane_diff = end_lane_7 - start_lane_7
+	if end_note_data.songPos < start_note_data.songPos:
+		# endNote가 시간상 더 앞서면 스왑
+		actual_start_data = end_note_data
+		actual_end_data = start_note_data
+		actual_start_lane = end_lane_7
+		actual_end_lane = start_lane_7
+	
+	var start_time_ms = actual_start_data.songPos + offset_ms
+	var end_time_ms = actual_end_data.songPos + offset_ms
+	
+	var lane_diff = actual_end_lane - actual_start_lane
 	var time_diff_ms = end_time_ms - start_time_ms
 	
 	# 레인 이동 방향 (1 또는 -1)
@@ -113,11 +127,11 @@ func _create_swipe_notes(start_note_data, end_note_data, start_lane_7, end_lane_
 	if total_steps == 0:
 		var err_note = {
 			"time_ms": end_time_ms,
-			"lane": end_lane_7,
+			"lane": actual_end_lane,
 			"note_type": GlobalEnums.NoteType.SWIPE,
 			"duration_ms": time_diff_ms,
 			"tick_count": 0,
-			"end_lane": end_lane_7
+			"end_lane": actual_end_lane
 		}
 		parsed_note_list.push_back(err_note)
 		return
@@ -129,22 +143,24 @@ func _create_swipe_notes(start_note_data, end_note_data, start_lane_7, end_lane_
 	for i in range(total_steps):
 		var note = {
 			"time_ms": start_time_ms + (time_per_step * i),
-			"lane": start_lane_7 + (step * i),
+			"lane": actual_start_lane + (step * i),
 			"note_type": GlobalEnums.NoteType.SWIPE,
 			"duration_ms": time_diff_ms,
 			"tick_count": 0,
-			"end_lane": end_lane_7
+			"end_lane": actual_end_lane,
+			"is_swipe_head": (i == 0)  # 첫 노트만 true
 		}
 		parsed_note_list.push_back(note)
 	
-	# 마지막 노트 생성
+	# 마지막 노트 생성 (후속 노트)
 	var end_note = {
 		"time_ms": end_time_ms,
-		"lane": end_lane_7,
+		"lane": actual_end_lane,
 		"note_type": GlobalEnums.NoteType.SWIPE,
 		"duration_ms": time_diff_ms,
 		"tick_count": 0,
-		"end_lane": end_lane_7
+		"end_lane": actual_end_lane,
+		"is_swipe_head": false  # 마지막 노트는 후속 노트
 	}
 	parsed_note_list.push_back(end_note)
 
@@ -159,6 +175,19 @@ func _parse_new_format(chart_data: Dictionary):
 	# active_lines 추적 (change 이벤트로 변경 가능)
 	var active_lines = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]  # 기본값: 12개 레인
 	
+	# [NEW] 스와이프 그룹별 첫 노트 시간 추적 (is_swipe_head 설정용)
+	var swipe_group_first_time: Dictionary = {}  # group_id -> first_time_ms
+	
+	# 1차 패스: 스와이프 그룹별 가장 빠른 시간 찾기
+	for note in notes:
+		if note.get("type", "") == "swift":
+			var group_id = note.get("group_id", -1)
+			var time = note.get("time", 0)
+			if group_id != -1:
+				if not swipe_group_first_time.has(group_id) or time < swipe_group_first_time[group_id]:
+					swipe_group_first_time[group_id] = time
+	
+	# 2차 패스: 노트 생성
 	for note in notes:
 		var line = note.get("line", -1)
 		var time = note.get("time", 0)
@@ -205,8 +234,15 @@ func _parse_new_format(chart_data: Dictionary):
 			"hold":
 				parsed_note["note_type"] = GlobalEnums.NoteType.LONG
 				parsed_note["tick_count"] = max(1, int(duration / 500.0))  # 0.5초마다 틱
-			"swift":  # 오타 수정 필요
+			"swift":
 				parsed_note["note_type"] = GlobalEnums.NoteType.SWIPE
+				# [NEW] 스와이프 그룹의 첫 노트인지 확인
+				var group_id = note.get("group_id", -1)
+				parsed_note["swipe_group_id"] = group_id  # 그룹 ID 저장
+				if group_id != -1 and swipe_group_first_time.has(group_id):
+					parsed_note["is_swipe_head"] = (time == swipe_group_first_time[group_id])
+				else:
+					parsed_note["is_swipe_head"] = true  # group_id 없으면 단독 스와이프로 처리
 			_:
 				printerr("[NoteManager] 알 수 없는 노트 타입: ", note_type)
 				continue
